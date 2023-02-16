@@ -1,8 +1,12 @@
-const app = require('express')().disable('x-powered-by')
+// const app = require('express')().disable('x-powered-by')
 const fs = require('fs')
 const path = require('path')
+const express = require("express");
+const app = express();
 let dbConnection = require('./config/mongo.config')
 
+// returns index.html
+app.use(express.static("./"));
 
 app.use(require('express').json())
 app.get('/images/lessons', (req, res) => {
@@ -46,6 +50,19 @@ app.post('/search-lessons', async (req, res) => {
         })
     }
 })
+
+/*
+{
+    "phoneNumber": "254715748252",
+    "name": "Maru",
+    "subjectId": 1,
+    "image": "img/product/kubernetes.png",
+    "subject": "kubernetes",
+    "location":"Dubai",
+    "price": 900,
+    "orders": 1
+}
+*/
 app.post('/new-order', async (req, res) => {
     console.log('ADD NEW ORDER',req.body)
 
