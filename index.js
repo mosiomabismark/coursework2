@@ -1,6 +1,8 @@
 // const app = require('express')().disable('x-powered-by')
 const fs = require('fs')
 const path = require('path')
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
 let dbConnection = require('./config/mongo.config')
@@ -91,4 +93,4 @@ app.post('/increase-order', async (req, res) => {
     }
 })
 
-app.listen(4000, ()=> console.log('APP started on port 4000'))
+app.listen(process.env.PORT || 4000, ()=> console.log('APP started on port 4000'))
