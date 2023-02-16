@@ -309,7 +309,7 @@
                 }
             },
             created() {
-                // Fetch lesso data from the Mongodb
+                // Fetch lessons data from the Mongodb
                 fetch("http://localhost:4000/lessons")
                     .then(response => response.json())
                     .then(data => (this.lessons = data));
