@@ -310,7 +310,7 @@
             },
             created() {
                 // Fetch lessons data from the Mongodb
-                fetch("http://localhost:4000/lessons")
+                fetch("https://courseworkbismark.herokuapp.com/lessons")
                     .then(response => response.json())
                     .then(data => (this.lessons = data));
             }
