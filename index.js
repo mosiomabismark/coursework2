@@ -30,6 +30,8 @@ app.get('/lessons', async (req, res) => {
         })
     }
 })
+
+// post route to search for subjects that matches seacrh query e.g {"subject": "kuber"}
 app.post('/search-lessons', async (req, res) => {
     console.log('SEARCH LESSONS',req.body)
 
